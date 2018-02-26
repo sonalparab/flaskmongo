@@ -1,5 +1,4 @@
-import pymongo, json
-from bson import json_util
+import pymongo
 
 """
 Our database is the United States Population Table (Ages 0-100) for 2010
@@ -18,7 +17,9 @@ each document individually to the collection
 
 connection = pymongo.MongoClient('homer.stuy.edu')
 db = connection.leksanovD_parabS
+db.pop.drop()
 collection = db.pop
+#collection.dropDatabase()
 
 def addData():
     f = open('pop.json','rU')
@@ -40,7 +41,7 @@ def findByTotalPopulation(total):
 
 def findByAge(age):
     for entry in collection.find({'age': age}):
-        print entry
+        return entry
 
 def findByNumFemales(females):
     for entry in collection.find({'females': females }):
@@ -55,6 +56,7 @@ def findByNumMalesAndFemales(males, females):
         print entry                        
 
 addData()
+'''
 print "Find By Population: 4057000"
 findByTotalPopulation(4057000)
 print "Find By Age: 45"
@@ -65,4 +67,4 @@ print "Find By Male Population: 2296000"
 findByNumMales(2296000)
 print "Find By Male and Female Population: 108000,247000"
 findByNumMalesAndFemales(108000, 247000)
-
+'''

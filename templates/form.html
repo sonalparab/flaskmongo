@@ -4,10 +4,13 @@
     <title> Form </title>
   </head>
   <body>
-    <form>
-      <h2></h2><br>
+    {% block content1 %}
+    <form method="POST" action="/output/">
+      <h1>US Population in 2010</h1>
+      <h2>Enter an age from 0-100</h2><br>
       <input type="text" name="age" placeholder="Age"><br><br>
       <input type="submit">
     </form>
+    {% endblock %}
   </body>
 </html>
