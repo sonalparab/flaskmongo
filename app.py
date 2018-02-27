@@ -11,7 +11,10 @@ def root():
 @app.route('/output/', methods=['POST'])
 def output():
     data = pop.findByAge(int(request.form['age']))
-    return render_template('output.html',data=data)
+    total = data['total']
+    females = data['females']
+    males = data['males']
+    return render_template('output.html', data=data, total=total, females=females, males=males)
 
 if __name__ == '__main__':
     app.debug = True
